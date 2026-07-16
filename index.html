@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="ky">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Биздин класс жана Мугалим сайты</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f4f7f6;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: #1a5276;
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        .header-container {
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            flex-wrap: wrap;
+        }
+
+        nav ul li {
+            margin: 5px 10px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 6px 12px;
+            border-radius: 4px;
+            transition: background 0.3s;
+        }
+
+        nav ul li a:hover {
+            background-color: #2980b9;
+        }
+
+        container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 20px auto;
+            display: block;
+        }
+
+        section {
+            background: white;
+            padding: 25px;
+            margin-bottom: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        h2 {
+            color: #1a5276;
+            border-bottom: 2px solid #2980b9;
+            padding-bottom: 8px;
+            margin-bottom: 15px;
+        }
+
+        /* Мугалим блогунун жайгашуусу */
+        .teacher-profile {
+            display: flex;
+            gap: 25px;
+            align-items: flex-start;
+            flex-wrap: wrap;
+        }
+
+        .teacher-img-box {
+            flex: 0 0 220px;
+            text-align: center;
+            margin: 0 auto;
+        }
+
+        .teacher-img {
+            width: 220px;
+            height: 280px;
+            object-fit: cover;
+            border-radius: 12px;
+            border: 3px solid #1a5276;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        }
+
+        .teacher-info {
+            flex: 1;
+            min-width: 280px;
+        }
+
+        .teacher-info h3 {
+            color: #1a5276;
+            margin-bottom: 12px;
+            font-size: 1.5rem;
+        }
+
+        .teacher-info p {
+            margin-bottom: 10px;
+        }
+
+        /* Класс бөлүмүнүн стилдери */
+        .motto-box {
+            background-color: #eaf2f8;
+            padding: 15px;
+            border-left: 5px solid #1a5276;
+            border-radius: 4px;
+            margin-bottom: 20px;
+        }
+
+        .class-features {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-top: 15px;
+        }
+
+        .feature-card {
+            flex: 1;
+            min-width: 200px;
+            background: #fafafa;
+            border: 1px solid #ddd;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        /* Китеп карталарынын стили */
+        .book-card {
+            background: #fafafa;
+            border: 1px solid #ddd;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .book-btn {
+            background-color: #27ae60;
+            color: white;
+            padding: 8px 15px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            font-size: 0.9rem;
+            transition: background 0.3s;
+        }
+
+        .book-btn:hover {
+            background-color: #219150;
+        }
+
+        /* Байланыш картасынын стили */
+        .contact-card {
+            background: #f9f9f9;
+            border: 1px solid #e0e0e0;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 10px;
+        }
+
+        .contact-item {
+            margin-bottom: 12px;
+            font-size: 1rem;
+        }
+
+        .whatsapp-btn {
+            display: inline-block;
+            background-color: #25d366;
+            color: white;
+            padding: 10px 18px;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: bold;
+            margin-top: 10px;
+            transition: background 0.3s;
+        }
+
+        .whatsapp-btn:hover {
+            background-color: #1ebd56;
+        }
+
+        footer {
+            background-color: #1a5276;
+            color: white;
+            text-align: center;
+            padding: 15px 0;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-container">
+            <div class="logo">Биздин класс</div>
+            <nav>
+                <ul>
+                    <li><a href="#home">Башкы бет</a></li>
+                    <li><a href="#teacher">Мугалим жөнүндө</a></li>
+                    <li><a href="#class">Биздин класс</a></li>
+                    <li><a href="#students">Окуучулар</a></li>
+                    <li><a href="#books">Китептер</a></li>
+                    <li><a href="#videos">Видеолор</a></li>
+                    <li><a href="#photos">Сүрөттөр</a></li>
+                    <li><a href="#contact">Байланыш</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <container>
+        <!-- Башкы бет -->
+        <section id="home">
+            <h2>Башкы бет</h2>
+            <p>Жума Жамгырчиев атындагы жалпы орто билим берүү мектебинин «Биздин класс» веб-сайтына кош келиңиздер! Бул жерден биздин классыбыздын турмушу, китептерибиз жана жетишкендиктерибиз тууралуу толук маалымат ала аласыз.</p>
+        </section>
+
+        <!-- Мугалим жөнүндө бөлүмү -->
+        <section id="teacher">
+            <h2>Мугалим жөнүндө</h2>
+            <div class="teacher-profile">
+                <div class="teacher-img-box">
+                    <img src="narynbek.jpg" alt="Сартаев Нарынбек Талапбекович" class="teacher-img">
+                </div>
+                
+                <div class="teacher-info">
+                    <h3>Сартаев Нарынбек Талапбекович</h3>
+                    <p><strong>Кесиби:</strong> Башталгыч класстардын мугалими</p>
+                    <p><strong>Педагогикалык стажы:</strong> 2015-жылдан бери (11 жылдан ашык)</p>
+                    <p><strong>Кыскача маалымат:</strong><br>
+                    Окуучуларга сапаттуу билим жана адеп-ахлактык тарбия берүүдө заманбап педагогикалык усулдарды жана санариптик технологияларды кеңири колдоном. Ар бир окуучунун жеке өзгөчөлүгүн эске алып, алардын логикалык ой жүгүртүүсүн жана чыгармачылык жөндөмүн өстүрүүгө өзгөчө көңүл бурам.</p>
+                    <p><strong>Педагогикалык кредо:</strong> <em>«Ар бир бала — өзүнчө бир дүйнө, ага туура жол табуу — мугалимдин эң чоң чеберчилиги жана жоопкерчилиги.»</em></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Биздин класс -->
+        <section id="class">
+            <h2>Биздин класс</h2>
+            
+            <div class="motto-box">
+                <h3 style="color: #1a5276; margin-bottom: 5px;">Биздин ураан:</h3>
+                <p style="font-style: italic; font-size: 1.1rem; color: #2c3e50;">
+                    «Билим — биздин куралыбыз, ынтымак — биздин туубуз!»
+                </p>
+            </div>
+
+            <p style="margin-bottom: 15px;">
+                Биздин класс — билимге умтулган, бири-бирин колдогон, жигердүү жана ынтымактуу окуучулардан турган чакан үй-бүлө.
+            </p>
+
+            <div class="class-features">
+                <div class="feature-card">
+                    <h4 style="color: #2980b9;">Ынтымак жана Достук</h4>
+                    <p style="font-size: 0.95rem; margin-top: 5px;">Ар бир окуучу бири-бирине жардам берип, биримдикте билим алат.</p>
+                </div>
+                <div class="feature-card">
+                    <h4 style="color: #2980b9;">Чыгармачылык</h4>
+                    <p style="font-size: 0.95rem; margin-top: 5px;">Сүрөт тартуу, ырдоо жана түрдүү мектептик иш-чараларга жигердүү катышабыз.</p>
+                </div>
+                <div class="feature-card">
+                    <h4 style="color: #2980b9;">Санариптик сабаттуулук</h4>
+                    <p style="font-size: 0.95rem; margin-top: 5px;">Заманбап интерактивдүү технологияларды колдонуу менен сабактарды кызыктуу өтөбүз.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Окуучулар -->
+        <section id="students">
+            <h2>Окуучулар</h2>
+            <p style="margin-bottom: 15px;">Биздин класста билим алып жаткан окуучулардын тизмеси:</p>
+
+            <!-- Статистика -->
+            <div style="display: flex; gap: 15px; margin-bottom: 20px; flex-wrap: wrap;">
+                <div style="background: #eaf2f8; padding: 12px 20px; border-radius: 8px; flex: 1; min-width: 150px; text-align: center; border-left: 4px solid #1a5276;">
+                    <div style="color: #555; font-size: 0.9rem;">Жалпы окуучулар</div>
+                    <strong style="color: #1a5276; font-size: 1.4rem;">19</strong>
+                </div>
+                <div style="background: #eaf2f8; padding: 12px 20px; border-radius: 8px; flex: 1; min-width: 150px; text-align: center; border-left: 4px solid #2980b9;">
+                    <div style="color: #555; font-size: 0.9rem;">Балдар</div>
+                    <strong style="color: #2980b9; font-size: 1.4rem;">7</strong>
+                </div>
+                <div style="background: #eaf2f8; padding: 12px 20px; border-radius: 8px; flex: 1; min-width: 150px; text-align: center; border-left: 4px solid #e74c3c;">
+                    <div style="color: #555; font-size: 0.9rem;">Кыздар</div>
+                    <strong style="color: #e74c3c; font-size: 1.4rem;">12</strong>
+                </div>
+            </div>
+
+            <!-- Таблица -->
+            <div style="overflow-x: auto;">
+                <table style="width: 100%; border-collapse: collapse; margin-top: 10px; font-size: 0.95rem;">
+                    <thead>
+                        <tr style="background-color: #1a5276; color: white;">
+                            <th style="padding: 10px; border: 1px solid #ddd; width: 50px; text-align: center;">№</th>
+                            <th style="padding: 10px; border: 1px solid #ddd; text-align: left;">Окуучунун аты-жөнү</th>
+                            <th style="padding: 10px; border: 1px solid #ddd; text-align: center; width: 160px;">Туулган күнү</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="padding: 8px; border: 1px solid #ddd; text-align: center;">1</td>
+                            <td style="padding: 8px; border: 1px solid #ddd;">Алыбеков Азамат Хамзатович</td>
+                            <td style="padding: 8px; border: 1px solid #ddd; text-align: center;">22.09.2017</td>
+                        </tr>
+                        <tr style="background-color: #f9f9f9;">
+                            <td style="padding: 8px; border: 1px solid #ddd; text-align: center;">2</td>
+                            <td style="padding: 8px; border: 1px solid #ddd;">Байсыматова Айназик Табылдыевна</td>
+                            <td style="padding: 8px; border: 1px solid #ddd; text-align: center;">26.07.2017</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 8px; border: 1px solid #ddd; text-align: center;">3</td>
+                            <td style="padding: 8px; border: 1px solid #ddd;">Бакытова Уулжан Бакытовна</td>
+                            <td style="padding: 8px; border: 1px solid #ddd; text-align: center;">13.01.2017</td>
+                        </tr>
+                        <tr style="background-color: #f9f9f9;">
+                            <td style="padding: 8px; border: 1px solid #ddd; text-align: center;">4</td>
+                            <td style="padding: 8px; border: 1px solid #ddd;">Догдурбаев Мухаммед Али Акжолтоевич</td>
+                            <td style="padding: 8px; border: 1px solid #ddd; text-align: center;">17.08.2017</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 8px; border: 1px solid #ddd; text-align: center;">5</td>
+                            <td style="padding: 8px; border: 1px solid #ddd;">Доктурбекова Раяна Акыйкатовна</td>
+                            <td style="padding: 8px; border: 1px solid #ddd; text-align: center;">17.06.2017</td>
+                        </tr>
+                        <tr style="background-color: #f9f9f9;">
+                            <td style="padding: 8px; border: 1px solid #ddd; text-align: center;">6</td>
+                            <td style="padding: 8px; border: 1px solid #ddd;">Жапарбекова Таңсулуу Каныбековна</td>
+                            <td style="padding: 8px; border: 1px solid #ddd; text-align: center;">29.12.2017</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 8px; border: 1px solid #ddd; text-align: center;">7</td>
+                            <td style="padding: 8px; border: 1px solid #ddd;">Жеңишбекова Назбийке Кубатовна</td>
+                            <td style="padding: 8px; border: 1px solid #ddd; text-align: center;">28.08.2017</td>
+                        </tr>
+                        <tr style="background-color: #f9f9f9;">
+                            <td style="padding: 8px; border: 1px solid #ddd; text-align: center;">8</td>
+                            <td style="padding: 8px; border: 1px solid #ddd;">Ильязов Нургелди Кубандыкович</td>
+                            <td style="padding: 8px; border: 1px solid #ddd; text-align: center;">16.01.2018</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 8px; border: 1px solid #ddd; text-align: center;">9</td>
+                            <td style="padding: 8px; border: 1px solid #ddd;">Кубатова Авигея Айбековна</td>
+                            <td style="padding: 8px; border: 1px solid #ddd; text-align: center;">31.05.2016</td>
+                        </tr>
+                        <tr style="background-color: #f9f9f9;">
+                            <td style="padding: 8px; border: 1px solid #ddd; text-align: center;">10</td>
+                            <td style="padding: 8px; border: 1px solid #ddd;">Осмонкулова Сумаида Азаматовна</td>
+                            <td style="padding: 8px; border: 1px solid #ddd; text-align: center;">04.04.2017</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 8px; border: 1px solid #ddd; text-align: center;">11</td>
+                            <td style="padding: 8px; border: 1px solid #ddd;">Осмонова Адила Жылдызбековна</td>
+                            <td style="padding: 8px; border: 1px solid #ddd; text-align: center;">21.11.2016</td>
+                        </tr>
+                        <tr style="background-color: #f9f9f9;">
+                            <td style="padding: 8px; border: 1px solid #ddd; text-align: center;">12</td>
+                            <td style="padding: 8px; border: 1px solid #ddd;">Садырбекова Нурдаана Кубанычовна</td>
+                            <td style="padding: 8px; border: 1px solid #ddd; text-align: center;">14.11.2017</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 8px; border: 1px solid #ddd; text-align: center;">13</td>
+                            <td style="padding: 8px; border: 1px solid #ddd;">Саякбаева Элина Саякбаевна</td>
+                            <td style="padding: 8px; border: 1px solid #ddd; text-align: center;">14.07.2018</td>
+                        </tr>
+                        <tr style="background-color: #f9f9f9;">
+                            <td style="padding: 8px; border: 1px solid #ddd; text-align: center;">14</td>
+                            <td style="padding: 8px; border: 1px solid #ddd;">Сырдыбаев Нуржигит Мирбекович</td>
+                            <td style="padding: 8px; border: 1px solid #ddd; text-align: center;">09.02.2017</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 8px; border: 1px solid #ddd; text-align: center;">15</td>
+                            <td style="padding: 8px; border: 1px solid #ddd;">Таалайбеков Байаман Нурсултанович</td>
+                            <td style="padding: 8px; border: 1px solid #ddd; text-align: center;">25.10.2017</td>
+                        </tr>
+                        <tr style="background-color: #f9f9f9;">
+                            <td style="padding: 8px; border: 1px solid #ddd; text-align: center;">16</td>
+                            <td style="padding: 8px; border: 1px solid #ddd;">Таштанбекова Кален Амантуровна</td>
+                            <td style="padding: 8px; border: 1px solid #ddd; text-align: center;">19.08.2017</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 8px; border: 1px solid #ddd; text-align: center;">17</td>
+                            <td style="padding: 8px; border: 1px solid #ddd;">Туратбеков Кудайберди Уланович</td>
+                            <td style="padding: 8px; border: 1px solid #ddd; text-align: center;">15.07.2017</td>
+                        </tr>
+                        <tr style="background-color: #f9f9f9;">
+                            <td style="padding: 8px; border: 1px solid #ddd; text-align: center;">18</td>
+                            <td style="padding: 8px; border: 1px solid #ddd;">Турусбекова Айсулуу Адисовна</td>
+                            <td style="padding: 8px; border: 1px solid #ddd; text-align: center;">25.03.2017</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 8px; border: 1px solid #ddd; text-align: center;">19</td>
+                            <td style="padding: 8px; border: 1px solid #ddd;">Эсенбеков Байбол Эсенбекович</td>
+                            <td style="padding: 8px; border: 1px solid #ddd; text-align: center;">17.10.2016</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Электрондук Китептер -->
+        <section id="books">
+            <h2>Китептер</h2>
+            <p>3-класс үчүн электрондук окуу китептери (Google Drive):</p>
+
+            <!-- 1-китеп: Мекен таануу -->
+            <div class="book-card">
+                <div>
+                    <h3 style="color: #1a5276; font-size: 1.1rem;">3rd Grade: Social Studies</h3>
+                    <p style="font-size: 0.9rem; color: #666;">Мекен таануу электрондук китеби (PDF)</p>
+                </div>
+                <a href="https://clck.ru/3UpNto" target="_blank" class="book-btn">📖 Read Book</a>
+            </div>
+
+            <!-- 2-китеп: Математика -->
+            <div class="book-card">
+                <div>
+                    <h3 style="color: #1a5276; font-size: 1.1rem;">3rd Grade: Mathematics</h3>
+                    <p style="font-size: 0.9rem; color: #666;">Математика электрондук китеби (PDF)</p>
+                </div>
+                <a href="https://clck.ru/3UpNto" target="_blank" class="book-btn">📖 Read Book</a>
+            </div>
+        </section>
+
+        <!-- Видеолор -->
+        <section id="videos">
+            <h2>Видеолор</h2>
+            <p>Класстык иш-чаралардан видеоматериалдар сабак башталганда кошулат.</p>
+        </section>
+
+        <!-- Сүрөттөр -->
+        <section id="photos">
+            <h2>Сүрөттөр</h2>
+            <p>Классыбыздын эстелик сүрөттөрү сабак башталганда кошулат.</p>
+        </section>
+
+        <!-- Байланыш маалыматы -->
+        <section id="contact">
+            <h2>Байланыш маалыматы</h2>
+            <div class="contact-card">
+                <div class="contact-item">
+                    <strong>🏫 Мектеп:</strong> Жума Жамгырчиев атындагы жалпы орто билим берүү мектеби
+                </div>
+                <div class="contact-item">
+                    <strong>📍 Дареги:</strong> Тоң району, Көк-Сай айылы
+                </div>
+                <div class="contact-item">
+                    <strong>📞 Телефон:</strong> +996 502 090 588
+                </div>
+                <div class="contact-item">
+                    <a href="https://wa.me/996502090588" target="_blank" class="whatsapp-btn">
+                        💬 WhatsApp аркылуу жазуу
+                    </a>
+                </div>
+            </div>
+        </section>
+    </container>
+
+    <footer>
+        <p>&copy; 2026 Жума Жамгырчиев атындагы мектеп. Биздин класс. Бардык укуктар корголгон.</p>
+    </footer>
+
+</body>
+</html>
